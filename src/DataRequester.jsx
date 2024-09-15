@@ -1,6 +1,8 @@
 const getAll = async () => {
   try {
-    const response = await fetch("http://localhost:3000/api/getall");
+    const response = await fetch(
+      "https://to00bs65-3005-project-2-rest-api.onrender.com/api/getall"
+    );
     const data = await response.json();
     return data;
   } catch (err) {
@@ -10,7 +12,9 @@ const getAll = async () => {
 
 const getById = async (id) => {
   try {
-    const response = await fetch(`http://localhost:3000/api/${id}`);
+    const response = await fetch(
+      `https://to00bs65-3005-project-2-rest-api.onrender.com/api/${id}`
+    );
     const data = await response.json();
     console.log(data);
     return data;
@@ -21,12 +25,15 @@ const getById = async (id) => {
 
 const deleteById = async (id) => {
   try {
-    const response = await fetch(`http://localhost:3000/api/delete/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-type": "application/json",
-      },
-    });
+    const response = await fetch(
+      `https://to00bs65-3005-project-2-rest-api.onrender.com/api/delete/${id}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    );
     const data = await response.json();
     console.log(data);
     return data;
@@ -52,13 +59,16 @@ const postAdd = async (formData) => {
   console.log("Filtered data", formData);
 
   try {
-    const response = await fetch(`http://localhost:3000/api/add/`, {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
+    const response = await fetch(
+      `https://to00bs65-3005-project-2-rest-api.onrender.com/api/add/`,
+      {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      }
+    );
     const data = await response.json();
     console.log(data);
     return data;
@@ -88,13 +98,16 @@ const patchById = async (id, formData) => {
   console.log("Filtered data", formData);
 
   try {
-    const response = await fetch(`http://localhost:3000/api/update/${id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
+    const response = await fetch(
+      `https://to00bs65-3005-project-2-rest-api.onrender.com/api/update/${id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      }
+    );
     const data = await response.json();
     console.log(data);
     return data;
