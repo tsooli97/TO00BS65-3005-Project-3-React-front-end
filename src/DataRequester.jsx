@@ -11,7 +11,7 @@ const getAll = async () => {
     const data = await response.json();
     return data;
   } catch (err) {
-    throw new Error("Failed to fetch movies: " + err.message);
+    throw new Error("Failed to fetch movies: Server unavailable" + err);
   }
 };
 
