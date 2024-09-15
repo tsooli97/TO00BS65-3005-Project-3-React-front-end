@@ -1,8 +1,17 @@
 const getAll = async () => {
+  const controller = new AbortController();
+  const fetchAllTimeout = setTimeout(() => {
+    controller.abort();
+  }, 2000);
+
   try {
     const response = await fetch(
-      "https://to00bs65-3005-project-2-rest-api.onrender.com/api/getall"
+      "https://to00bs65-3005-project-2-rest-api.onrender.com/api/getall",
+      {
+        signal: controller.signal,
+      }
     );
+    clearTimeout(fetchAllTimeout);
 
     if (!response.ok) {
       throw new Error("Failed to fetch movies: " + response.statusText);
@@ -10,7 +19,14 @@ const getAll = async () => {
 
     const data = await response.json();
     return data;
-  } catch {
+  } catch (err) {
+    clearTimeout(fetchAllTimeout);
+
+    if (err.name === "AbortError") {
+      throw new Error(
+        "Server is starting up, please refresh the page again in a moment"
+      );
+    }
     throw new Error("Failed to fetch movies: Server unavailable");
   }
 };
