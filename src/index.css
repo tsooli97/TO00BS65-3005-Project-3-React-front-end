@@ -1,0 +1,220 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+.movie-div {
+  margin: 1rem;
+  padding: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
+.movie-div p {
+  text-align: left;
+  padding: 0 0.5rem 0 0.5rem;
+}
+
+.get-id-div button {
+  margin-left: 0.5rem;
+}
+
+form p {
+  margin: 0.5rem 0 0 0;
+}
+
+.form-div input {
+  width: 50%;
+}
+
+.form-div label {
+  display: inline-block;
+  width: 100px;
+  text-align: right;
+  margin-right: 0.3rem;
+}
+
+.form-div textarea {
+  width: 50%;
+  resize: vertical;
+  min-height: 1rem;
+  max-height: 300px;
+}
+
+.form-star input {
+  width: 24.5%;
+}
+
+.form-stars .form-star:nth-child(1){
+  transform: translateX(38px);
+}
+
+.form-stars .form-star:nth-child(1n+2){
+  transform: translateX(90px);
+}
+
+.form-star button {
+  transform: translateX(10px);
+  padding: 0.4rem;
+}
+
+form > button {
+  margin-left: 10px;
+}
+
+.form-stars {
+  margin-top: 1rem;
+}
+
+.form-genres {
+  margin-top: 1rem;
+}
+
+.form-genres .form-genre:nth-child(1) {
+  transform: translateX(38px);
+}
+
+.form-star {
+  margin: 0.5rem 0 0.5rem 0;
+}
+
+.form-genre {
+  margin: 0.5rem 0 0.5rem 0;
+}
+
+.genre-table {
+  transform: translate(-10px,-1px);
+}
+
+.starring-table {
+  transform: translate(-10px,-1px)
+}
+
+.form-genres .form-genre:nth-child(1n+2){
+  transform: translateX(91px);
+}
+
+.form-genre button {
+  transform: translateX(10px);
+  padding: 0.4rem;
+}
+
+.info-button {
+  background-color: #abaeec;
+}
+
+.info-div {
+  max-width: 80vw;
+  transform: translateX(10%);
+}
+
+.movie-div table {
+  width: 100%;
+}
+
+th {
+  width: 10%;
+  vertical-align: top;
+  text-align: end;
+}
+
+td {
+  text-align: left;
+  padding-left: 0.5rem;
+}
+
+.th-id {
+  font-size: 0.8rem;
+}
+
+.td-id {
+  font-size: 0.8rem;
+}
+
+.star-actor {
+  width: 30%;
+}
+
+.star-row {
+  display: flex;
+  justify-content: start;
+}
+
+.star-as {
+  font-weight: 600;
+}
+
+.patch-id-input {
+  width: 50%
+}
+
+.patch-id-div {
+  transform: translateX(43px);
+  margin-bottom: 1.5rem;
+}
+
+.label-id {
+  transform: translateX(-4px);
+}
