@@ -3,10 +3,15 @@ const getAll = async () => {
     const response = await fetch(
       "https://to00bs65-3005-project-2-rest-api.onrender.com/api/getall"
     );
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch movies: " + response.statusText);
+    }
+
     const data = await response.json();
     return data;
   } catch (err) {
-    return "Failed to fetch movies: ", err;
+    throw new Error("Failed to fetch movies: " + err.message);
   }
 };
 

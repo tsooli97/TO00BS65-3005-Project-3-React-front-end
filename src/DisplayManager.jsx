@@ -23,8 +23,11 @@ const DisplayManager = () => {
       const movies = await getAll();
       setMovieData(movies.message);
       setDisplayedMovies(movies.message);
+      setError(null);
     } catch (err) {
-      setError("Failed to fetch movies: " + err.message);
+      setError(err.message);
+      setMovieData([]);
+      setDisplayedMovies([]);
     }
   };
 
@@ -60,24 +63,32 @@ const DisplayManager = () => {
 
   return (
     <div className="display-manager-div">
-      <p>There are {movieData.length} movies currently in the database.</p>
-      <div className="select-div">
-        <select onChange={handleSelect}>
-          <option value="getAll">View All Movies</option>
-          <option value="getId">Find Movie By Id</option>
-          <option value="postId">Add Movie</option>
-          <option value="patchId">Update Movie</option>
-          <option value="deleteId">Delete Movie</option>
-        </select>
-      </div>
-      <hr />
-      {currentView === "getAll" && (
-        <GetAll movies={displayedMovies} handleSearch={handleSearch} />
+      {error ? (
+        <div className="error-div">
+          <h2>Error: {error}</h2>
+        </div>
+      ) : (
+        <>
+          <p>There are {movieData.length} movies currently in the database.</p>
+          <div className="select-div">
+            <select onChange={handleSelect}>
+              <option value="getAll">View All Movies</option>
+              <option value="getId">Find Movie By Id</option>
+              <option value="postId">Add Movie</option>
+              <option value="patchId">Update Movie</option>
+              <option value="deleteId">Delete Movie</option>
+            </select>
+          </div>
+          <hr />
+          {currentView === "getAll" && (
+            <GetAll movies={displayedMovies} handleSearch={handleSearch} />
+          )}
+          {currentView === "getId" && <GetId />}
+          {currentView === "postId" && <PostAdd />}
+          {currentView === "patchId" && <PatchId />}
+          {currentView === "deleteId" && <DeleteId />}
+        </>
       )}
-      {currentView === "getId" && <GetId />}
-      {currentView === "postId" && <PostAdd />}
-      {currentView === "patchId" && <PatchId />}
-      {currentView === "deleteId" && <DeleteId />}
     </div>
   );
 };
